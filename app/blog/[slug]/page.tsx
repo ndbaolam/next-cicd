@@ -1,6 +1,13 @@
 export async function generateStaticParams() {
-  const test: any = [];
-  return test;
+  const paths = [
+    { slug: 'post-1' },
+    { slug: 'post-2' },
+    { slug: 'post-3' },
+  ];
+
+  return paths.map((path) => ({
+    params: { slug: path.slug },
+  }));
 }
 
 type Params = {
@@ -15,9 +22,9 @@ export async function generateMetadata({ params }: Params) {
 
 export default function Page({ params }: Params) {
   return (
-    <>  
+    <>
       <h1>Slug: {params.slug}</h1>
       <p>HoleTex</p>
-    </>    
+    </>
   );
 }

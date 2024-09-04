@@ -1,14 +1,14 @@
-export async function generateStaticParams() {
-  const paths = [
-    { slug: 'post-1' },
-    { slug: 'post-2' },
-    { slug: 'post-3' },
-  ];
+// export async function generateStaticParams() {
+//   const paths = [
+//     { slug: 'post-1' },
+//     { slug: 'post-2' },
+//     { slug: 'post-3' },
+//   ];
 
-  return paths.map((path) => ({
-    params: { slug: path.slug },
-  }));
-}
+//   return paths.map((path) => ({
+//     params: { slug: path.slug },
+//   }));
+//}
 
 type Params = {
   params: {
@@ -16,15 +16,15 @@ type Params = {
   };
 };
 
-export async function generateMetadata({ params }: Params) {
-  return { title: `Post: ${params.slug}` };
-}
+// export async function generateMetadata({ params }: Params) {
+//   return { title: `Post: ${params.slug}` };
+// }
 
-export default function Page({ params }: Params) {
+export default function Page({ params }: { params: { slug: string } }) {
   return (
-    <>
-      <h1>Slug: {params.slug}</h1>
+    <div>
+      My Post: {params.slug}
       <p>HoleTex</p>
-    </>
+    </div>
   );
 }

@@ -4,6 +4,13 @@ type Params = {
   };
 };
 
+// Return a list of `params` to populate the [slug] dynamic segment
+export async function generateStaticParams() {
+  const test: any = [];
+  return test;
+}
+
+
 export async function generateMetadata({ params }: Params) {
   return { title: `Post: ${params.slug}` };
 }
